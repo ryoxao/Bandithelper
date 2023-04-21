@@ -8,16 +8,14 @@ I recomend to use this tool on a gnome terminal, because it launches a gnome ter
 
 Mybe in the future i'll make it to detect the shell and run it in that shell, but for now that's all
 
-Inspirated by https://github.com/AguacateContreras
-
 -----------------------------------------------------------------------------------------------------
 
 # ###Command guide###
 
-git clone https://github.com/ryoxao/Bandithelper.git
+git clone https://github.com/ryoxao/BanditHelper.git
 
 cd BanditHelper
 
-chmod +x bandithelper.sh
+chmod +x Start.sh
 
-./banditHelper.sh
+./Start.sh

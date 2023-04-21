@@ -3,6 +3,7 @@
 #To clear the screen
 
 echo $(clear)
+echo $(touch "usr&passwd.log")
 
 #Colours
 greenColour="\e[0;32m\033[1m"
@@ -158,7 +159,7 @@ then
         echo -e "${purpleColour}Printing the log file :${endColour}"
         echo $(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u)
       else
-        echo "${purpleColour}the log file is empty${endColour}"
+        echo -e "${purpleColour}the log file is empty${endColour}"
       fi
     else
       echo -e "${purpleColour}the log file doesn't exists${endColour}"

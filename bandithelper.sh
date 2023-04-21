@@ -160,10 +160,12 @@ then
         read
       else
         echo -e "${purpleColour}the log file is empty${endColour}"
+        echo -e " ${purpleColour}Press enter to exit...${endColour}"
         read
       fi
     else
       echo -e "${purpleColour}the log file doesn't exists${endColour}"
+      echo -e " ${purpleColour}Press enter to exit...${endColour}"
       read
     fi
   elif [ $logsopt -eq 2 ]
@@ -185,6 +187,7 @@ then
       fi
     else
       echo -e "${purpleColour}Can't print the last passwd because the file is empty${endColour}"
+      echo -e " ${purpleColour}Press enter to exit...${endColour}"
       read
     fi
   elif [ $logsopt -eq 3 ]
@@ -194,6 +197,7 @@ then
     echo $(rm "usr&passwd.log")
     echo $(touch "usr&passwd.log")
     echo -e "${purpleColour}Done, the log file now is empty${endColour}"
+    echo -e " ${purpleColour}Press enter to exit...${endColour}"
     read
   fi
 fi

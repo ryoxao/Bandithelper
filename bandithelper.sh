@@ -123,7 +123,6 @@ if [ $option -eq 2 ]
             echo -e "${redColour}[+]${endColour} ${purpleColour}Enter the passwd of the user bandit$(echo $selectlevel)${endColour}"
             read passwd
             echo $(clear)
-            #echo echo $(gnome-terminal -e "/usr/bin/sshpass -p "$passwd" /usr/bin/ssh bandit$selectlevel@bandit.labs.overthewire.org -p 2220")
             echo -e $(gnome-terminal -- /bin/bash -c "/usr/bin/sshpass -p $passwd /usr/bin/ssh bandit$selectlevel@bandit.labs.overthewire.org -p 2220; exec /bin/bash" & )
             echo -e  $(echo -e "usr : bandit$selectlevel; passwd : "$passwd"\n">>"usr&passwd.log")
             echo -e "${redColour}[+]${endColour} ${purpleColour}Waiting until you close the terminal of the conection with the bandit servers, When you will close it Press Enter...${endColour}"

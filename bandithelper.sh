@@ -180,7 +180,7 @@ then
         read -p "${purpleColour}Press enter to exit...${endColour}"
       else
         echo -e "${redColour}[+]${endColour} ${purpleColour}Printing the last passwd that is for the usr : $(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $3}' | tr ";" " ")\n${endColour}"
-        echo -e "\"${redColour}$(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $6}')\"\n${endColour}"
+        echo -e "\"${redColour}$(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $6}')${endColour}\"\n"
         echo -e " ${purpleColour}Press enter to exit...${endColour}"
         read
         echo $(clear)

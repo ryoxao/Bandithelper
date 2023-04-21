@@ -157,11 +157,14 @@ then
         echo -e "${purpleColour}the log file isn't empty${endColour}"
         echo -e "${purpleColour}Printing the log file :${endColour}"
         echo $(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u)
+        read
       else
         echo -e "${purpleColour}the log file is empty${endColour}"
+        read
       fi
     else
       echo -e "${purpleColour}the log file doesn't exists${endColour}"
+      read
     fi
   elif [ $logsopt -eq 2 ]
   then
@@ -191,6 +194,7 @@ then
     echo $(rm "usr&passwd.log")
     echo $(touch "usr&passwd.log")
     echo -e "${purpleColour}Done, the log file now is empty${endColour}"
+    read
   fi
 fi
 

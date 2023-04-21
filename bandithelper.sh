@@ -125,7 +125,7 @@ if [ $option -eq 2 ]
             #echo echo $(gnome-terminal -e "/usr/bin/sshpass -p "$passwd" /usr/bin/ssh bandit$selectlevel@bandit.labs.overthewire.org -p 2220")
             echo $(gnome-terminal -- /bin/bash -c "/usr/bin/sshpass -p $passwd /usr/bin/ssh bandit$selectlevel@bandit.labs.overthewire.org -p 2220; exec /bin/bash" & )
             echo $(echo -e "usr : bandit$selectlevel; passwd : "$passwd"\n">>"usr&passwd.log")
-            read -p "Waiting until you close the terminal of the conection with the bandit servers, When you will close it Press Enter..."
+            read -p "${redColour}[+]${endColour} ${purpleColour}Waiting until you close the terminal of the conection with the bandit servers, When you will close it Press Enter...${endColour}"
             selectlevel=""
             passwd=""
           fi
@@ -135,32 +135,32 @@ fi
 #condition3
 if [ $option -eq 3 ]
 then
-  echo -e "Select what do you want to do with the logs"
-  echo -e "[1] Show me the logs"
-  echo -e "[2] Print me the last passwd that had been stored"
-  echo -e "[3] I want to clear the logs"
+  echo -e "${purpleColour}Select what do you want to do with the logs${endColour}"
+  echo -e "${redColour}[1]${endColour} ${purpleColour}Show me the logs${endColour}"
+  echo -e "${redColour}[2]${endColour} ${purpleColour}Print me the last passwd that had been stored${endColour}"
+  echo -e "${redColour}[3]${endColour} ${purpleColour}I want to clear the logs${endColour}"
   read logsopt
   echo $(clear)
   if [ $logsopt -eq 1 ]
   then
-    echo "[+] Checking if the file exists..."
+    echo -e "${redColour}[+]${endColour} ${purpleColour}Checking if the file exists...${endColour}"
     sleep 1
     echo $([ -e usr\&passwd.log ])
     if [ $? = 0 ]
     then  
-      echo "the log file exists"
-      echo "[+] Checking if the file is empty..."
+      echo "${purpleColour}the log file exists${endColour}"
+      echo "${redColour}[+]${endColour} ${purpleColour}Checking if the file is empty...${endColour}"
       sleep 1
       if [ -s usr\&passwd.log ]
       then
-        echo "the log file isn't empty"
-        echo "Printing the log file :"
+        echo "${purpleColour}the log file isn't empty${endColour}"
+        echo "${purpleColour}Printing the log file :${endColour}"
         echo $(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u)
       else
-        echo "the log file is empty"
+        echo "${purpleColour}the log file is empty${endColour}"
       fi
     else
-      echo "the log file doesn't exists"
+      echo "${purpleColour}the log file doesn't exists${endColour}"
     fi
   elif [ $logsopt -eq 2 ]
   then
@@ -168,27 +168,27 @@ then
     then
       if [ "$lastpasswd" = "" ] || [ "$lastpasswd" = " " ] || [ "$lastpasswd" = ":" ]
       then
-        echo "Can't print the passwd because the last passwd of the usr$(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $3}' | tr ";" " ") is empty"
-        echo "It might be because you press enter in the input of \"Enter the passwd of the usr banditX\""
-        echo "Or just the log file is empty"
-        read -p "Press enter to exit..."
+        echo "${purpleColour}Can't print the passwd because the last passwd of the usr${endColour}${redColour}$(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $3}' | tr ";" " ") is empty${endColour}"
+        echo "${purpleColour}It might be because you press enter in the input of \"Enter the passwd of the usr banditX\"${endColour}"
+        echo "${purpleColour}Or just the log file is empty${endColour}"
+        read -p "${purpleColour}Press enter to exit...${endColour}"
       else
-        echo -e "[+] Printing the last passwd that is for the usr : $(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $3}' | tr ";" " ")\n"
-        echo -e "\"$(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $6}')\"\n"
-        read -p "Press enter to exit..."
+        echo -e "${redColour}[+]${endColour} ${purpleColour}Printing the last passwd that is for the usr : $(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $3}' | tr ";" " ")\n${endColour}"
+        echo -e "\"${redColour}$(grep -v '^[[:space:]]*$' usr\&passwd.log | sort -u | tail -n 1 | awk '{print $6}')\"\n${endColour}"
+        read -p " ${purpleColour}Press enter to exit...${endColour}"
         echo $(clear)
       fi
     else
-      echo "Can't print the last passwd because the file is empty"
+      echo "${purpleColour}Can't print the last passwd because the file is empty${endColour}"
       read
     fi
   elif [ $logsopt -eq 3 ]
   then 
-    echo "Cleaning the log file..."
+    echo "${purpleColour}Cleaning the log file...${endColour}"
     sleep 2
     echo $(rm "usr&passwd.log")
     echo $(touch "usr&passwd.log")
-    echo "Done, the log file now is empty"
+    echo "${purpleColour}Done, the log file now is empty${endColour}"
   fi
 fi
 

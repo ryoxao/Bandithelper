@@ -12,7 +12,7 @@ Mybe in the future i'll make it to detect the shell and run it in that shell, bu
 
 # ###Command guide###
 
-git clone https://github.com/ryoxao/BanditHelper.git
+git clone https://github.com/ryoxao/Bandithelper.git
 
 cd BanditHelper
 

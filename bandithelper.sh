@@ -126,7 +126,7 @@ if [ $option -eq 2 ]
             echo -e $(gnome-terminal -- /bin/bash -c "/usr/bin/sshpass -p $passwd /usr/bin/ssh bandit$selectlevel@bandit.labs.overthewire.org -p 2220; exec /bin/bash" & )
             if [ $selectlevel -le 9 ]
             then
-              echo -e  $(echo -e "usr : bandit$selectlevel; passwd : 0"$passwd"\n">>"usr&passwd.log")
+              echo -e  $(echo -e "usr : bandit0$selectlevel; passwd : "$passwd"\n">>"usr&passwd.log")
             elif [$selectlevel -gt 9]
             then
               echo -e  $(echo -e "usr : bandit$selectlevel; passwd : "$passwd"\n">>"usr&passwd.log")

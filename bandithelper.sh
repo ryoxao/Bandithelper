@@ -114,7 +114,6 @@ if [ $option -eq 2 ]
           echo -e "${purpleColour}Exactly, the conection would look lke : \"ssh bandit0@bandit.labs.overthewire.org -p 2220\" i'll lunch another terinal where i'll run this comand.${endColour}"  
           read
           echo $(gnome-terminal -e "/usr/bin/ssh bandit0@bandit.labs.overthewire.org -p 2220")
-          echo -e "${redColour}[+]${endColour} ${purpleColour}More information of the level $selectlevel in their website :${endColour} https://overthewire.org/wargames/bandit/bandit$selectlevel.html${blueColour}${endColour}"
           read -p "Waiting until you close the terminal of the conection with the bandit servers, When you will close it Press Enter..."
           selectlevel=""
         elif [ "$selectlevel" != "0" ]
@@ -132,6 +131,7 @@ if [ $option -eq 2 ]
             then
               echo -e  $(echo -e "usr : bandit$selectlevel; passwd : "$passwd"\n">>"usr&passwd.log")
             fi
+            echo -e "${redColour}[+]${endColour} ${purpleColour}More information of the level $selectlevel in their website :${endColour} https://overthewire.org/wargames/bandit/bandit$selectlevel.html${blueColour}${endColour}"
             echo -e "${redColour}[+]${endColour} ${purpleColour}Waiting until you close the terminal of the conection with the bandit servers, When you will close it Press Enter...${endColour}"
             read
             selectlevel=""
